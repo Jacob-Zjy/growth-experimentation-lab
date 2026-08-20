@@ -1,0 +1,6 @@
+check_name,observed_value,expected_value
+invalid_conversion_values,0.0,0.0
+invalid_visit_values,0.0,0.0
+negative_revenue_rows,0.0,0.0
+row_count,64000.0,64000.0
+unique_customer_count,64000.0,64000.0

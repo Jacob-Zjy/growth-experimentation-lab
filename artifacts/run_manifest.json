@@ -1,0 +1,13 @@
+{
+  "generated_at_utc": "2026-08-20T12:47:15.423201+00:00",
+  "synthetic": false,
+  "rows": 64000,
+  "database": "processed\\growth_lab.duckdb",
+  "srm_p_value": 0.9036929575604196,
+  "srm_detected": false,
+  "best_uplift_model": "x_learner",
+  "optimal_target_fraction": 0.02,
+  "value_per_incremental_visit": 5.0,
+  "contact_cost": 0.5,
+  "decision_memo": "artifacts\\experiment_decision_memo.md"
+}

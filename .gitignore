@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Environments and local configuration
+.venv/
+venv/
+.env
+.idea/
+.vscode/
+
+# Data is downloaded from the upstream source and is not redistributed
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# Row-level derived scores are regenerated locally and are not redistributed
+artifacts/metrics/scored_validation_sample.csv
+artifacts/metrics/scored_test_sample.csv
+
+# Generated model binaries and local databases
+models/*.joblib
+*.duckdb
+*.db
+
+# Streamlit and OS files
+.streamlit/secrets.toml
+.DS_Store
+Thumbs.db

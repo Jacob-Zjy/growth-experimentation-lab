@@ -1,0 +1,37 @@
+comparison,covariate,smd,absolute_smd,passes_0_10_rule
+mens_email_vs_control,history_segment=2) $100 - $200,-0.016359543173779502,0.016359543173779502,True
+mens_email_vs_control,"history_segment=7) $1,000 +",0.015834592826810663,0.015834592826810663,True
+mens_email_vs_control,geography_type=Rural,0.01365900039927897,0.01365900039927897,True
+mens_email_vs_control,geography_type=Surburban,-0.01174335672606268,0.01174335672606268,True
+mens_email_vs_control,prior_channel=Web,0.011013588354428299,0.011013588354428299,True
+mens_email_vs_control,history_segment=1) $0 - $100,0.010916720554376393,0.010916720554376393,True
+mens_email_vs_control,history_segment=5) $500 - $750,-0.009740129383845251,0.009740129383845251,True
+mens_email_vs_control,prior_channel=Phone,-0.008275992307117473,0.008275992307117473,True
+mens_email_vs_control,prior_12m_spend,0.00761286832154239,0.00761286832154239,True
+mens_email_vs_control,prior_womens_buyer,0.007588929691887142,0.007588929691887142,True
+mens_email_vs_control,recency_months,0.006831532454259954,0.006831532454259954,True
+mens_email_vs_control,"history_segment=6) $750 - $1,000",0.006073217597584176,0.006073217597584176,True
+mens_email_vs_control,history_segment=3) $200 - $350,0.005470713585408414,0.005470713585408414,True
+mens_email_vs_control,prior_mens_buyer,-0.0045823256374879625,0.0045823256374879625,True
+mens_email_vs_control,history_segment=4) $350 - $500,-0.004257423463175294,0.004257423463175294,True
+mens_email_vs_control,prior_channel=Multichannel,-0.004181536419632754,0.004181536419632754,True
+mens_email_vs_control,geography_type=Urban,0.0019722315768513645,0.0019722315768513645,True
+mens_email_vs_control,is_new_customer,-0.0008918953696535328,0.0008918953696535328,True
+womens_email_vs_control,history_segment=2) $100 - $200,-0.014286147854542706,0.014286147854542706,True
+womens_email_vs_control,history_segment=3) $200 - $350,0.011350888687263824,0.011350888687263824,True
+womens_email_vs_control,"history_segment=6) $750 - $1,000",-0.008819306801837288,0.008819306801837288,True
+womens_email_vs_control,history_segment=4) $350 - $500,0.008677899940116288,0.008677899940116288,True
+womens_email_vs_control,prior_mens_buyer,-0.008630731202832915,0.008630731202832915,True
+womens_email_vs_control,prior_channel=Phone,0.008622833281250204,0.008622833281250204,True
+womens_email_vs_control,prior_12m_spend,0.006510722458553667,0.006510722458553667,True
+womens_email_vs_control,prior_channel=Multichannel,-0.00528289712504171,0.00528289712504171,True
+womens_email_vs_control,recency_months,0.005180013205688683,0.005180013205688683,True
+womens_email_vs_control,prior_channel=Web,-0.005147863897421752,0.005147863897421752,True
+womens_email_vs_control,prior_womens_buyer,0.004946313992582152,0.004946313992582152,True
+womens_email_vs_control,geography_type=Rural,0.00395850560137286,0.00395850560137286,True
+womens_email_vs_control,"history_segment=7) $1,000 +",0.0034993920645670033,0.0034993920645670033,True
+womens_email_vs_control,is_new_customer,0.0025567009140795606,0.0025567009140795606,True
+womens_email_vs_control,geography_type=Urban,-0.0017628666291550237,0.0017628666291550237,True
+womens_email_vs_control,geography_type=Surburban,-0.0010891197386245202,0.0010891197386245202,True
+womens_email_vs_control,history_segment=1) $0 - $100,-0.0006771130829583109,0.0006771130829583109,True
+womens_email_vs_control,history_segment=5) $500 - $750,0.0006499424018974358,0.0006499424018974358,True
