@@ -1,52 +1,50 @@
-# Growth Experimentation & Causal Uplift Lab
+# 增长实验与因果增益决策系统
 
-[![CI](https://github.com/Jacob-Zjy/growth-experimentation-uplift/actions/workflows/ci.yml/badge.svg)](https://github.com/Jacob-Zjy/growth-experimentation-uplift/actions/workflows/ci.yml)
+### Growth Experimentation & Causal Uplift Decision System
+
+[![CI](https://github.com/Jacob-Zjy/growth-experimentation-lab/actions/workflows/ci.yml/badge.svg)](https://github.com/Jacob-Zjy/growth-experimentation-lab/actions/workflows/ci.yml)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
-An end-to-end data science project for two product questions:
+这是一个端到端的数据科学项目，围绕两个产品增长问题展开：
 
-1. Did a randomized campaign create incremental impact?
-2. Which eligible users should be contacted because treatment changes their behavior?
+1. 随机触达策略是否真正产生了增量效果？
+2. 哪些用户会因为触达而改变行为，应当被优先触达？
 
-The repository combines SQL metric marts, experiment diagnostics, statistical inference,
-CUPED, heterogeneous treatment-effect models, offline policy evaluation, and a Streamlit
-decision dashboard.
+项目将 SQL 指标集市、实验诊断、统计推断、CUPED、异质性处理效应建模、
+离线策略评估与 Streamlit 决策看板连接成一条可复现的分析链路。
 
 [中文复现指南](docs/README_CN.md)
 
-> The dataset is a public historical email experiment. This project does not use or claim
-> to represent data from ByteDance, Tencent, Xiaohongshu, or any other employer.
+> 数据来自公开的历史邮件随机实验。本项目不使用、也不声称代表字节跳动、腾讯、
+> 小红书或其他公司的内部数据。
 
-## What this project demonstrates
+## 项目展示的能力
 
-- DuckDB and SQL data modeling with explicit table grain and metric definitions
-- sample-ratio-mismatch and pre-treatment balance checks before outcome analysis
-- multi-arm A/B analysis with confidence intervals and Benjamini-Hochberg correction
-- power analysis, minimum detectable effects, and CUPED variance reduction
-- independent S-, T-, and X-learner implementations with scikit-learn
-- strict 60/20/20 splitting: validation selects model and targeting share; test evaluates once
-- Qini, AUUC, and inverse-propensity offline policy evaluation
-- configurable value and contact-cost assumptions
-- a stakeholder dashboard, generated decision memo, automated tests, and GitHub Actions
+- 使用 DuckDB 与 SQL 构建明确粒度和指标口径的数据集市
+- 在读取实验结果前完成样本比例失配（SRM）与实验前协变量平衡检查
+- 对多组 A/B 实验计算置信区间，并使用 Benjamini-Hochberg 控制错误发现率
+- 完成功效分析、最小可检测效应（MDE）与 CUPED 方差缩减
+- 基于 scikit-learn 独立实现 S/T/X-Learner
+- 严格执行 60/20/20 划分：验证集选择模型和触达比例，测试集仅评估一次
+- 使用 Qini、AUUC 与逆倾向加权进行离线策略评估
+- 通过显式增量价值和触达成本配置策略假设
+- 交付 Streamlit 决策看板、自动决策备忘录、测试与 GitHub Actions
 
-## Analytical architecture
+## Framework
 
-```mermaid
-flowchart LR
-    A[Public randomized CSV] --> B[Schema and checksum validation]
-    B --> C[(DuckDB data mart)]
-    C --> D[Experiment audit]
-    C --> E[Average treatment effects]
-    C --> F[Heterogeneous effects]
-    D --> G[SRM and covariate balance]
-    E --> H[Z tests, Welch tests, BH, power, CUPED]
-    F --> I[S/T/X learners]
-    I --> J[Validation selection]
-    J --> K[Held-out policy evaluation]
-    G --> L[Decision memo and Streamlit]
-    H --> L
-    K --> L
+![增长实验与因果增益决策系统 Framework](artifacts/figures/framework_overview.png)
+
+Framework 明确区分三类数据用途：训练集只用于拟合 uplift 模型，验证集用于选择模型
+与触达比例，独立测试集仅进行一次最终评估，从流程上避免测试集信息泄漏。
+
+[可编辑 SVG](artifacts/figures/framework_overview.svg) ·
+[矢量 PDF](artifacts/figures/framework_overview.pdf)
+
+重新生成 Framework：
+
+```bash
+python scripts/generate_framework_figure.py
 ```
 
 ## Verified public-data results
@@ -82,8 +80,8 @@ Requirements:
 ### Windows PowerShell
 
 ```powershell
-git clone https://github.com/Jacob-Zjy/growth-experimentation-uplift.git
-cd growth-experimentation-uplift
+git clone https://github.com/Jacob-Zjy/growth-experimentation-lab.git
+cd growth-experimentation-lab
 Set-ExecutionPolicy -Scope Process Bypass
 .\scripts\setup.ps1
 .\.venv\Scripts\python.exe scripts\run_pipeline.py
@@ -95,8 +93,8 @@ Open the local URL printed by Streamlit, usually `http://localhost:8501`.
 ### macOS/Linux
 
 ```bash
-git clone https://github.com/Jacob-Zjy/growth-experimentation-uplift.git
-cd growth-experimentation-uplift
+git clone https://github.com/Jacob-Zjy/growth-experimentation-lab.git
+cd growth-experimentation-lab
 python -m venv .venv
 source .venv/bin/activate
 python -m pip install --upgrade pip
@@ -109,7 +107,7 @@ Conda users can instead run:
 
 ```bash
 conda env create -f environment.yml
-conda activate growth-experimentation-uplift
+conda activate growth-experimentation-lab
 python scripts/run_pipeline.py
 ```
 
@@ -144,6 +142,7 @@ A full run creates:
 
 - `artifacts/experiment_decision_memo.md`
 - `artifacts/run_manifest.json`
+- `artifacts/figures/framework_overview.{svg,pdf,png,tiff}`
 - summary tables in `artifacts/metrics/*.csv`
 - figures in `artifacts/figures/*.png`
 - a local DuckDB mart in `data/processed/`
@@ -188,6 +187,7 @@ synthetic data so CI does not depend on the upstream download server.
 Main entry points:
 
 - `scripts/run_pipeline.py`: reproducible command-line workflow
+- `scripts/generate_framework_figure.py`: publication-style framework export
 - `src/growth_lab/pipeline.py`: pipeline orchestration
 - `sql/01_build_mart.sql`: analytical mart construction
 - `src/growth_lab/experiment.py`: experiment diagnostics and inference

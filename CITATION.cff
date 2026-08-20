@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this educational project, please cite it as follows."
-title: "Growth Experimentation and Causal Uplift Lab"
+title: "Growth Experimentation and Causal Uplift Decision System"
 type: software
 authors:
   - family-names: Zhao

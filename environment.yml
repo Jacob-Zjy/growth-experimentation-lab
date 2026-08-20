@@ -1,4 +1,4 @@
-name: growth-experimentation-uplift
+name: growth-experimentation-lab
 channels:
   - conda-forge
 dependencies:

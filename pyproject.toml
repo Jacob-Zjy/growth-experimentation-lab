@@ -3,7 +3,7 @@ requires = ["setuptools>=69", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "growth-experimentation-uplift"
+name = "growth-experimentation-lab"
 version = "0.1.0"
 description = "Reproducible A/B experimentation, CUPED, causal uplift modeling, and policy optimization on a public randomized marketing experiment."
 readme = "README.md"

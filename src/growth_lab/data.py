@@ -62,7 +62,7 @@ def download_hillstrom(destination: Path = RAW_GZIP_PATH, force: bool = False) -
 
     request = urllib.request.Request(
         HILLSTROM_URL,
-        headers={"User-Agent": "growth-experimentation-uplift/0.1"},
+        headers={"User-Agent": "growth-experimentation-lab/0.1"},
     )
     temporary = destination.with_suffix(destination.suffix + ".part")
     with urllib.request.urlopen(request, timeout=90) as response:  # noqa: S310

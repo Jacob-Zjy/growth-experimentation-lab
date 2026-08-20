@@ -16,7 +16,7 @@ METRICS = ROOT / "artifacts" / "metrics"
 FIGURES = ROOT / "artifacts" / "figures"
 
 st.set_page_config(
-    page_title="Growth Experimentation Lab",
+    page_title="增长实验与因果增益决策系统",
     page_icon="📈",
     layout="wide",
 )
@@ -37,9 +37,9 @@ def show_image(name: str, caption: str) -> None:
         st.image(str(path), caption=caption, use_container_width=True)
 
 
-st.title("Growth Experimentation & Causal Uplift Lab")
+st.title("增长实验与因果增益决策系统")
 st.caption(
-    "A reproducible three-arm randomized experiment, from validity checks to an offline targeting policy."
+    "Growth Experimentation & Causal Uplift Decision System — from validity checks to an offline targeting policy."
 )
 
 arms = load_csv("arm_metrics.csv")

@@ -1,4 +1,4 @@
-# 中文安装、配置与复现指南
+# 增长实验与因果增益决策系统：安装、配置与复现指南
 
 本项目是一套可完整复现的数据科学分析链路，用公开随机实验数据回答两个问题：
 
@@ -7,6 +7,14 @@
 
 公开仓库只包含代码、SQL、数据说明、方法文档、汇总结果、图表和运行配置。
 简历话术、面试问答及岗位匹配分析不属于项目源码，不放入公开仓库。
+
+![系统 Framework 图](../artifacts/figures/framework_overview.png)
+
+重新生成 SVG、PDF、600 DPI PNG 和 TIFF：
+
+```bash
+python scripts/generate_framework_figure.py
+```
 
 ## 1. 环境要求
 
@@ -20,8 +28,8 @@
 在 PowerShell 中执行：
 
 ```powershell
-git clone https://github.com/Jacob-Zjy/growth-experimentation-uplift.git
-cd growth-experimentation-uplift
+git clone https://github.com/Jacob-Zjy/growth-experimentation-lab.git
+cd growth-experimentation-lab
 Set-ExecutionPolicy -Scope Process Bypass
 .\scripts\setup.ps1
 .\.venv\Scripts\python.exe scripts\run_pipeline.py
@@ -46,8 +54,8 @@ python -m venv .venv
 ## 3. macOS/Linux 快速开始
 
 ```bash
-git clone https://github.com/Jacob-Zjy/growth-experimentation-uplift.git
-cd growth-experimentation-uplift
+git clone https://github.com/Jacob-Zjy/growth-experimentation-lab.git
+cd growth-experimentation-lab
 python -m venv .venv
 source .venv/bin/activate
 python -m pip install --upgrade pip
@@ -60,7 +68,7 @@ Conda 用户可使用：
 
 ```bash
 conda env create -f environment.yml
-conda activate growth-experimentation-uplift
+conda activate growth-experimentation-lab
 python scripts/run_pipeline.py
 ```
 
@@ -116,6 +124,7 @@ python scripts/run_pipeline.py --synthetic
 
 - `artifacts/experiment_decision_memo.md`：自动生成的决策备忘录
 - `artifacts/run_manifest.json`：运行时间、数据模式与核心配置
+- `artifacts/figures/framework_overview.*`：系统 Framework 的 SVG、PDF、PNG 与 TIFF
 - `artifacts/metrics/*.csv`：实验、功效、CUPED、异质性和策略汇总表
 - `artifacts/figures/*.png`：实验结果、平衡性、MDE、Qini 与策略价值图
 
@@ -142,6 +151,7 @@ GitHub Actions 会在 push 和 pull request 时运行相同检查。集成测试
 ## 8. 主要代码入口
 
 - `scripts/run_pipeline.py`：命令行入口
+- `scripts/generate_framework_figure.py`：系统 Framework 制图入口
 - `src/growth_lab/pipeline.py`：全流程编排
 - `src/growth_lab/data.py`：下载、MD5 与数据质量检查
 - `sql/01_build_mart.sql`：分析数据集市
