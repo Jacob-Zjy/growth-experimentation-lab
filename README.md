@@ -33,19 +33,9 @@
 
 ## Framework
 
-![增长实验与因果增益决策系统 Framework](artifacts/figures/framework_overview.png)
+![增长实验与因果增益决策系统 Framework](artifacts/figures/framework_overview.jpg)
 
-Framework 明确区分三类数据用途：训练集只用于拟合 uplift 模型，验证集用于选择模型
-与触达比例，独立测试集仅进行一次最终评估，从流程上避免测试集信息泄漏。
 
-[可编辑 SVG](artifacts/figures/framework_overview.svg) ·
-[矢量 PDF](artifacts/figures/framework_overview.pdf)
-
-重新生成 Framework：
-
-```bash
-python scripts/generate_framework_figure.py
-```
 
 ## Verified public-data results
 
